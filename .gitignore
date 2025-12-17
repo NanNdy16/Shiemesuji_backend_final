@@ -1,0 +1,34 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Secrets
+src/utils/jwt-secret.json
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+
+# Test and Utility Scripts
+test_payload.json
+check_hash.js
+check_user_hash.js
+debug_db.js
+update_db_passwords.js
+verify_all_endpoints.js
