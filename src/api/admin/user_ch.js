@@ -5,16 +5,13 @@ import authAdmin from '../../middleware/authAdmin.js';
 
 const router = express.Router();
 
-router.post('/', authAdmin, async (req, res) => {
-  const { username, id_pos, nama_pos } = req.body;
-  const password = await bcrypt.hash('bbws_perairan', 10);
-
-  await db.query(
-    'INSERT INTO user_ch (username, password, id_pos, nama_pos) VALUES (?,?,?,?)',
-    [username, password, id_pos, nama_pos]
-  );
-
-  res.json({ message: 'User CH berhasil dibuat' });
+router.get('/', authAdmin, async (req, res) => {
+  try {
+    const [rows] = await db.query('SELECT * FROM user_ch');
+    res.json(rows);
+  } catch (error) {
+    res.status(500).json({ message: 'Internal server error' });
+  }
 });
 
 export default router;

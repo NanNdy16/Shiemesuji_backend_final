@@ -6,6 +6,9 @@ import loginAdmin from './api/admin/login.js';
 import loginCh from './api/auth/login_ch.js';
 import loginTma from './api/auth/login_tma.js';
 import loginKlim from './api/auth/login_klimatologi.js';
+import userChAdmin from './api/admin/user_ch.js';
+import userTmaAdmin from './api/admin/user_tma.js';
+import userKlimAdmin from './api/admin/user_klimatologi.js';
 import { initializeKeyManager } from './utils/jwtKeyManager.js';
 import globalAuth from './middleware/globalAuth.js';
 
@@ -20,6 +23,9 @@ app.use(globalAuth);
 
 // ADMIN
 app.use('/api/admin/login', loginAdmin);
+app.use('/api/admin/users/ch', userChAdmin);
+app.use('/api/admin/users/tma', userTmaAdmin);
+app.use('/api/admin/users/klimatologi', userKlimAdmin);
 
 // AUTH USER
 app.use('/api/auth/ch', loginCh);
